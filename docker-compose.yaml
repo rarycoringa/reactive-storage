@@ -1,0 +1,29 @@
+services:
+  cassandra:
+    image: cassandra:5-jammy
+    container_name: cassandra
+    ports:
+      - 9042:9042
+    volumes:
+      - cassandra_data:/var/lib/cassandra
+      - ./cassandra:/scripts
+    networks:
+      - reactive-ms-network
+
+  redis:
+    image: redis:8-alpine
+    container_name: redis
+    ports:
+      - 6379:6379
+    volumes:
+      - redis_data:/data
+    networks:
+      - reactive-ms-network
+
+volumes:
+  cassandra_data:
+  redis_data:
+
+networks:
+  reactive-ms-network:
+    external: true
