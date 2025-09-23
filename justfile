@@ -4,5 +4,5 @@ up:
 down:
     docker compose down
 
-cassandra-config:
+config:
     docker exec -i cassandra cqlsh -f ./scripts/keyspaces.cql
