@@ -2,6 +2,9 @@ services:
   cassandra:
     image: cassandra:5-jammy
     container_name: cassandra
+    environment:
+      - MAX_HEAP_SIZE=512M
+      - HEAP_NEWSIZE=128M
     ports:
       - 9042:9042
     volumes:
