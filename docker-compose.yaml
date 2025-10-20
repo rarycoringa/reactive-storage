@@ -13,6 +13,20 @@ services:
     networks:
       - reactive-ms-network
 
+  mongodb:
+    image: mongo:8-noble
+    container_name: mongo
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: user
+      MONGO_INITDB_ROOT_PASSWORD: pass
+      MONGO_INITDB_DATABASE: minisocialdb
+    ports:
+      - 27017:27017
+    volumes:
+      - mongo_data:/data/db
+    networks:
+      - reactive-ms-network
+
   redis:
     image: redis:8-alpine
     container_name: redis
@@ -25,6 +39,7 @@ services:
 
 volumes:
   cassandra_data:
+  mongo_data:
   redis_data:
 
 networks:
