@@ -1,18 +1,4 @@
 services:
-  cassandra:
-    image: cassandra:5-jammy
-    container_name: cassandra
-    environment:
-      - MAX_HEAP_SIZE=512M
-      - HEAP_NEWSIZE=128M
-    ports:
-      - 9042:9042
-    volumes:
-      - cassandra_data:/var/lib/cassandra
-      - ./cassandra:/scripts
-    networks:
-      - reactive-ms-network
-
   mongodb:
     image: mongo:8-noble
     container_name: mongo
@@ -38,7 +24,6 @@ services:
       - reactive-ms-network
 
 volumes:
-  cassandra_data:
   mongo_data:
   redis_data:
 
