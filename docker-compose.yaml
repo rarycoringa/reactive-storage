@@ -5,7 +5,7 @@ services:
     environment:
       MONGO_INITDB_ROOT_USERNAME: user
       MONGO_INITDB_ROOT_PASSWORD: pass
-      MONGO_INITDB_DATABASE: minisocialdb
+      MONGO_INITDB_DATABASE: ministoredb
     ports:
       - 27017:27017
     volumes:
@@ -13,19 +13,8 @@ services:
     networks:
       - reactive-ms-network
 
-  redis:
-    image: redis:8-alpine
-    container_name: redis
-    ports:
-      - 6379:6379
-    volumes:
-      - redis_data:/data
-    networks:
-      - reactive-ms-network
-
 volumes:
   mongo_data:
-  redis_data:
 
 networks:
   reactive-ms-network:
